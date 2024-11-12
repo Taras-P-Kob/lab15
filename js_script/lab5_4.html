@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 5 Task 4</title>
+    <title>Lab 5 Task 4</title>
 	    <link rel="stylesheet" href="../css/style.css"></head>
+</head>
 <body>
     <h1>Програма шифрування</h1>
     <label for="inputText">Введіть текст:</label>
@@ -25,7 +26,13 @@
                 let firstChar = word[0];
                 let lastChar = word[word.length - 1];
                 let middleChars = word.slice(1, -1).split('');
-                middleChars.sort(() => Math.random() - 0.5); // перемішуємо середину
+
+                // Перемішуємо тільки середину, якщо є більше ніж одна буква в середині
+                for (let i = middleChars.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [middleChars[i], middleChars[j]] = [middleChars[j], middleChars[i]]; // Фішка для перемішування
+                }
+                
                 return firstChar + middleChars.join('') + lastChar;
             });
             document.getElementById("outputText").textContent = encryptedWords.join(" ");

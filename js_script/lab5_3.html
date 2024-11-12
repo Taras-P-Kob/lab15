@@ -15,29 +15,35 @@
     <p><strong>Зашифрований текст:</strong> <span id="outputText"></span></p>
 
     <script>
-        function encryptText() {
-            const input = document.getElementById('inputText').value;
-            let encryptedText = '';
+function encrypt(text) {
+    const alphabet = 'абвгдеєжзиійклмнопрстуфхцчшщьюя';
+    const alphabetUpper = alphabet.toUpperCase(); // Великий алфавіт
+    let encryptedText = '';
 
-            for (let i = 0; i < input.length; i++) {
-                let char = input[i];
-
-                if (char >= 'а' && char <= 'я') {
-                    // Заміна на наступну літеру
-                    encryptedText += String.fromCharCode(
-                        char.charCodeAt(0) + 1 > 'я'.charCodeAt(0) 
-                        ? 'а'.charCodeAt(0) 
-                        : char.charCodeAt(0) + 1
-                    );
-                } else if (char === ' ') {
-                    encryptedText += ' '; // Залишаємо пробіли
-                } else {
-                    encryptedText += char; // Якщо не літера, залишаємо як є
-                }
-            }
-
-            document.getElementById('outputText').textContent = encryptedText;
+    for (let i = 0; i < text.length; i++) {
+        let char = text[i];
+        
+        if (alphabet.includes(char)) {
+            let index = alphabet.indexOf(char);
+            let nextIndex = (index + 1) % alphabet.length;
+            encryptedText += alphabet[nextIndex];
+        } else if (alphabetUpper.includes(char)) {
+            let index = alphabetUpper.indexOf(char);
+            let nextIndex = (index + 1) % alphabetUpper.length;
+            encryptedText += alphabetUpper[nextIndex];
+        } else {
+            encryptedText += char;  // Якщо це не буква, додаємо її без змін (наприклад, пробіл)
         }
+    }
+
+    return encryptedText;
+}
+
+const originalText = "Я Роман";
+const encrypted = encrypt(originalText);
+console.log(`Оригінал: ${originalText}`);
+console.log(`Шифр: ${encrypted}`);
+
     </script>
 <ul>
     <li>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab 5 Task 3</title>
-	    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <h2>Шифрування тексту</h2>
@@ -39,11 +39,11 @@ function encrypt(text) {
     return encryptedText;
 }
 
-const originalText = "Я Роман";
-const encrypted = encrypt(originalText);
-console.log(`Оригінал: ${originalText}`);
-console.log(`Шифр: ${encrypted}`);
-
+function encryptText() {
+    const inputText = document.getElementById("inputText").value; // Отримуємо введений текст
+    const encrypted = encrypt(inputText); // Шифруємо текст
+    document.getElementById("outputText").textContent = encrypted; // Виводимо зашифрований текст
+}
 </script>
 
 <ul>
@@ -51,6 +51,6 @@ console.log(`Шифр: ${encrypted}`);
         <a class="home" href="../index.html">Повернутися на головну сторінку</a>
     </li>
 </ul>
-	
+
 </body>
 </html>

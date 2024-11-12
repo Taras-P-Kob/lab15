@@ -1,39 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Lab 4 Task 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5 Task 2</title>
 	    <link rel="stylesheet" href="../css/style.css">
-
 </head>
 <body>
+    <h1>Завдання 2: Слово та літера 'і'</h1>
+
+    <label for="textInput">Введіть текст:</label>
+    <textarea id="textInput" rows="4" cols="50"></textarea><br>
+
+    <button onclick="processText()">Обробити текст</button>
+
+    <p id="wordCount"></p>
+    <p id="swappedText"></p>
+
     <script>
-        // Генеруємо масив з випадковими значеннями (не менше 15 елементів)
-        let array = [];
-        for (let i = 0; i < 15; i++) {
-            array.push(Math.floor(Math.random() * 100)); // Додаємо випадкові числа від 0 до 99
-        }
+        function processText() {
+            // Отримуємо введений текст
+            const text = document.getElementById('textInput').value;
 
-        // Виводимо масив на екран
-        document.write("Початковий масив: " + array.join(", ") + "<br>");
+            // Розбиваємо текст на слова
+            const words = text.split(/\s+/);
 
-        // Знаходимо максимальний елемент та його індекс
-        let maxIndex = 0;
-        for (let i = 1; i < array.length; i++) {
-            if (array[i] > array[maxIndex]) {
-                maxIndex = i;
+            // Підраховуємо кількість слів, в яких є літера 'і'
+            let count = 0;
+            words.forEach(word => {
+                if (word.includes('і')) {
+                    count++;
+                }
+            });
+
+            // Міняємо місцями перше та друге слово
+            if (words.length >= 2) {
+                [words[0], words[1]] = [words[1], words[0]];
             }
-        }
-        
-        // Міняємо максимальний елемент з передостаннім елементом
-        let temp = array[array.length - 2];
-        array[array.length - 2] = array[maxIndex];
-        array[maxIndex] = temp;
 
-        // Виводимо результат
-        document.write("Масив після заміни: " + array.join(", "));
+            // Виводимо результати
+            document.getElementById('wordCount').innerText = `Кількість слів з літерою 'і': ${count}`;
+            document.getElementById('swappedText').innerText = `Текст з поміняними словами: ${words.join(' ')}`;
+        }
     </script>
-	
+
 <ul>
     <li>
         <a class="home" href="../index.html">Повернутися на головну сторінку</a>
@@ -42,4 +52,3 @@
 	
 </body>
 </html>
-

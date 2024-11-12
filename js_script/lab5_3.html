@@ -14,7 +14,7 @@
 
     <p><strong>Зашифрований текст:</strong> <span id="outputText"></span></p>
 
-    <script>
+<script>
 function encrypt(text) {
     const alphabet = 'абвгдеєжзиійклмнопрстуфхцчшщьюя';
     const alphabetUpper = alphabet.toUpperCase(); // Великий алфавіт
@@ -22,12 +22,15 @@ function encrypt(text) {
 
     for (let i = 0; i < text.length; i++) {
         let char = text[i];
-        
+
+        // Перевірка на малу літеру
         if (alphabet.includes(char)) {
             let index = alphabet.indexOf(char);
             let nextIndex = (index + 1) % alphabet.length;
             encryptedText += alphabet[nextIndex];
-        } else if (alphabetUpper.includes(char)) {
+        }
+        // Перевірка на велику літеру
+        else if (alphabetUpper.includes(char)) {
             let index = alphabetUpper.indexOf(char);
             let nextIndex = (index + 1) % alphabetUpper.length;
             encryptedText += alphabetUpper[nextIndex];
@@ -43,8 +46,8 @@ const originalText = "Я Роман";
 const encrypted = encrypt(originalText);
 console.log(`Оригінал: ${originalText}`);
 console.log(`Шифр: ${encrypted}`);
+</script>
 
-    </script>
 <ul>
     <li>
         <a class="home" href="../index.html">Повернутися на головну сторінку</a>

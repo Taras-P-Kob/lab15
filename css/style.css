@@ -1,0 +1,71 @@
+:q
+/* styles.css */
+
+/* Загальні стилі */
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Світлий фон */
+    margin: 0; /* Вимкнення стандартних відступів */
+    padding: 20px; /* Внутрішні відступи */
+}
+
+/* Заголовки */
+h2 {
+    color: #333; /* Текст заголовка */
+    margin-bottom: 20px; /* Відступи під заголовком */
+}
+
+/* Поля вводу */
+input[type="number"],
+input[type="text"] {
+    padding: 10px; /* Внутрішні відступи */
+    margin: 10px 0; /* Відступи зверху і знизу */
+    border: 1px solid #ccc; /* Сіра рамка */
+    border-radius: 5px; /* Краї рамки */
+    width: 80%; /* Ширина поля */
+    max-width: 300px; /* Максимальна ширина */
+}
+
+/* Кнопки */
+button {
+    padding: 10px 20px; /* Внутрішні відступи кнопки */
+    margin: 10px; /* Відступи кнопки */
+    font-size: 16px; /* Розмір шрифту кнопки */
+    cursor: pointer; /* Курсор на кнопці */
+    background-color: #007bff; /* Синій фон кнопки */
+    color: white; /* Білий текст кнопки */
+    border: none; /* Без рамки */
+    border-radius: 5px; /* Краї кнопки */
+    transition: background-color 0.3s; /* Плавний перехід кольору */
+}
+
+/* Гамма для кнопки при наведенні */
+button:hover {
+    background-color: #0056b3; /* Темніший синій при наведенні */
+}
+
+/* Результати */
+#temperatureResult,
+#moodResult {
+    margin-top: 20px; /* Відступи над результатами */
+    font-weight: bold; /* Жирний текст */
+    color: #333; /* Колір тексту результату */
+}
+
+/* Кнопка повернення на головну */
+.home {
+    background-color: #28a745; /* Зелений фон для кнопки повернення */
+    color: white; /* Білий текст кнопки */
+    border-radius: 5px; /* Краї кнопки */
+    border: none; /* Без рамки */
+    padding: 10px 20px; /* Внутрішні відступи */
+}
+
+.home:hover {
+    background-color: #218838; /* Темніший зелений при наведенні */
+}
+
+
+ul {
+    list-style-type: none; /* Відключає маркери списку */}

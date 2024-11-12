@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4 Task 1</title>
+	    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<script>
+// Завдання 1: Трикутні числа та квадрати натуральних чисел
+
+// Створення масиву "трикутних" чисел
+let treag = [];
+for (let n = 1; n <= 10; n++) {
+    treag.push(n * (n + 1) / 2);
+}
+
+// Виведення масиву "трикутних" чисел
+document.write("Трикутні числа: ");
+document.write(treag.join("  "));
+document.write("<br>");
+
+// Створення масиву квадратів чисел від 1 до 10
+let kvd = [];
+for (let i = 1; i <= 10; i++) {
+    kvd.push(i * i);
+}
+
+// Виведення масиву квадратів
+document.write("Квадрати чисел: ");
+document.write(kvd.join("  "));
+document.write("<br>");
+
+// Об'єднання двох масивів в один
+let rez = treag.concat(kvd);
+
+// Виведення об'єднаного масиву
+document.write("Об'єднаний масив: ");
+document.write(rez.join("  "));
+document.write("<br>");
+
+// Сортування масиву в зворотному порядку
+rez.sort((a, b) => b - a);
+
+// Виведення відсортованого масиву
+document.write("Сортування в зворотному порядку: ");
+document.write(rez.join("  "));
+document.write("<br>");
+
+</script>
+
+	<ul>
+    <li>
+        <a class="home" href="../index.html">Повернутися на головну сторінку</a>
+    </li>
+
+</body>
+</html>
+
+

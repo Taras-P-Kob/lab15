@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4 Task 2</title>
+	    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+    <script>
+        // Генеруємо масив з випадковими значеннями (не менше 15 елементів)
+        let array = [];
+        for (let i = 0; i < 15; i++) {
+            array.push(Math.floor(Math.random() * 100)); // Додаємо випадкові числа від 0 до 99
+        }
+
+        // Виводимо масив на екран
+        document.write("Початковий масив: " + array.join(", ") + "<br>");
+
+        // Знаходимо максимальний елемент та його індекс
+        let maxIndex = 0;
+        for (let i = 1; i < array.length; i++) {
+            if (array[i] > array[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+        
+        // Міняємо максимальний елемент з передостаннім елементом
+        let temp = array[array.length - 2];
+        array[array.length - 2] = array[maxIndex];
+        array[maxIndex] = temp;
+
+        // Виводимо результат
+        document.write("Масив після заміни: " + array.join(", "));
+    </script>
+	
+<ul>
+    <li>
+        <a class="home" href="../index.html">Повернутися на головну сторінку</a>
+    </li>
+</ul>
+	
+</body>
+</html>
+

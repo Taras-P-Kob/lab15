@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4 Task 3</title>
+	    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h2>Згенерований масив:</h2>
+    <p id="array"></p>
+    <h2>Результати:</h2>
+    <p id="results"></p>
+
+    <script>
+        // Створення масиву з 15 випадкових чисел у діапазоні від -50 до 50
+        const arr = Array.from({ length: 15 }, () => Math.floor(Math.random() * 101) - 50);
+        document.getElementById("array").textContent = arr.join(", ");
+
+        // Значення для проміжку [A, B)
+        const A = -10;
+        const B = 20;
+
+        // Знаходимо середнє арифметичне чисел в проміжку [A, B)
+        const filteredNumbers = arr.filter(num => num >= A && num < B);
+        const average = filteredNumbers.reduce((sum, num) => sum + num, 0) / filteredNumbers.length;
+
+        // Рахуємо кількість додатних чисел на місцях, кратних 4
+        const positiveCountOnMultiplesOf4 = arr.reduce((count, num, index) => {
+            return (index % 4 === 0 && num > 0) ? count + 1 : count;
+        }, 0);
+
+        // Виведення результатів
+        document.getElementById("results").innerHTML = `
+            Середнє арифметичне чисел в проміжку [${A}, ${B}): ${average.toFixed(2)}<br>
+            Кількість додатних чисел на місцях, кратних 4: ${positiveCountOnMultiplesOf4}
+        `;
+    </script>
+
+	<ul>
+    <li>
+        <a class="home" href="../index.html">Повернутися на головну сторінку</a>
+    </li>
+</ul>
+	
+</body>
+</html>
